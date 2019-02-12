@@ -45,7 +45,7 @@ void my_assert(
 #if VM_TRACE
     tracer->close();
 #endif
-    exit(1);
+    //exit(1);
   }}
 }}
 
@@ -286,5 +286,6 @@ class VerilatorTarget(VerilogTarget):
         # finally run the executable created by verilator.
         verilator_make_cmd = verilator_utils.verilator_make_cmd(
             self.circuit_name)
+        print (verilator_make_cmd)
         assert not self.run_from_directory(verilator_make_cmd)
         assert not self.run_from_directory(f"./obj_dir/V{self.circuit_name}")

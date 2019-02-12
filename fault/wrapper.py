@@ -30,6 +30,8 @@ class Wrapper:
     def __getattr__(self, attr):
         # Hack to stage this after __init__ has been run, should redefine this
         # method in a metaclass?
+        instance_map = object.__getattribute__(self, "instance_map")
+        print (instance_map.keys(), attr, attr in instance_map)
         try:
             if attr in self.circuit.interface.ports.keys():
                 return PortWrapper(self.circuit.interface.ports[attr], self)
