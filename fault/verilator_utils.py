@@ -52,6 +52,10 @@ def verilator_comp_cmd(top=None, verilog_filename=None,
 def verilator_make_cmd(top):
     cmd = []
     cmd += ['make']
+    cmd += ['CXX=clang++']
+    cmd += ['OBJCACHE=ccache']
+    cmd += ['VM_PARALLEL_BUILDS=1']
+    #cmd += ['-j4']
     cmd += ['-C', 'obj_dir']
     cmd += ['-j']
     cmd += ['-f', f'V{top}.mk']

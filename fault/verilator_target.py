@@ -536,7 +536,7 @@ for ({loop_expr}) {{
 
         # Run makefile created by verilator
         make_cmd = verilator_make_cmd(self.circuit_name)
-        subprocess_run(make_cmd, cwd=self.directory, disp_type=self.disp_type)
+        res1 = subprocess_run(make_cmd, cwd=self.directory, disp_type=self.disp_type)
 
         # Run the executable created by verilator and write the standard
         # output to a logfile for later review or processing
